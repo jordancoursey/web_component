@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Interoperabiliyt</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+  <style>
+    div.showcase {
+        padding: 20px;
+        background-color: #f1f1f1;
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <h2>Password Field</h2>
+    <div class="password">
+      <input-rt password></input-rt>
+    </div>
+  
+  
+    <h2>Disable Text Area</h2>
+    <div class="showcase">
+      <input-rt disabled></input-rt>
+    </div>
+
+  <div class="showcase">
+
+        <input-rt mode="sender">
+          <mqtt-send id="sender" slot="messenger" topic="chattest/1">
+          </mqtt-send>
+      </input-rt>
+
+    </br>
+        
+      <input-rt size="l"mode="textarea">
+          <mqtt-fetch id="receiver" slot="messenger" topic="chattest/1">
+          </mqtt-fetch>
+      </input-rt>
+        <div/>
+
+
+
+    <script src = "inputRT.js"></script>
+    <script src="mqttSend.js"></script>
+    <script src="mqttFetch.js"></script>
+
+    <!-- <script>
+        let btn = document.querySelector('button#btn');
+        btn.addEventListener("click", function() {
+            console.log("hi there")
+
+            // play around with rt-button
+            let el = document.querySelector ("rt-button");
+            el.setAttribute("disabled", false);
+        })
+
+    </script> -->
+
+
+
+</body>
+</html>
